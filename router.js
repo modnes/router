@@ -1,0 +1,121 @@
+/* global history, CustomEvent */
+export default class Router {
+  constructor (wrapper, routes) {
+    this.routes = (routes instanceof Array) ? routes : []
+    this.wrapper = wrapper
+    this.current = null
+    this.currentElement = null
+
+    window.addEventListener('pathChanged', this.updateRoute.bind(this))
+    window.addEventListener('popstate', this.updateRoute.bind(this))
+    this.updateRoute()
+  }
+
+  addRoute (route) {
+    this.routes.push(route)
+  }
+
+  async updateRoute () {
+    const ROUTE = this.getRoute(window.location.pathname)
+    const INIT_CURRENT = (this.current === null && ROUTE !== null)
+
+    if (ROUTE !== null && (INIT_CURRENT || this.current.path !== ROUTE.path)) {
+      if (ROUTE.modules instanceof Array) {
+        for (const MODULE of ROUTE.modules) {
+          await import(MODULE)
+        }
+      }
+
+      this.current = ROUTE
+      this.updateComponent(ROUTE.component)
+    }
+  }
+
+  updateComponent (component) {
+    const ELEMENT = document.createElement(this.mixParams(component))
+
+    if (this.currentElement) {
+      this.currentElement.remove()
+    }
+
+    if (Array.isArray(this.current.classes)) {
+      for (const CLASS_ITEM of this.current.classes) {
+        ELEMENT.classList.add(this.mixParams(CLASS_ITEM))
+      }
+    }
+
+    if (Array.isArray(this.current.attributes)) {
+      for (const ATTIRBUTE of this.current.attributes) {
+        ELEMENT.setAttribute(this.mixParams(ATTIRBUTE.name), this.mixParams(ATTIRBUTE.value))
+      }
+    }
+
+    this.wrapper.appendChild(ELEMENT)
+    this.currentElement = ELEMENT
+  }
+
+  getRoute (path) {
+    for (const INDEX in this.routes) {
+      const REGEX = Router.createRegExp(this.routes[INDEX].path)
+
+      if (REGEX.test(path)) {
+        return this.routes[INDEX]
+      }
+    }
+
+    return null
+  }
+
+  getParams () {
+    const PARAMS = {}
+    const PATH_PARAMS = this.current.path.match(/:+[^/$]*/g)
+    const PATH_PARTS = window.location.pathname.split('/')
+    const ROUTE_PARTS = this.current.path.split('/')
+
+    ROUTE_PARTS.forEach((part, index) => {
+      if (PATH_PARAMS && PATH_PARAMS.indexOf(part) !== -1) {
+        PARAMS[part.replace(':', '')] = PATH_PARTS[index]
+      }
+    })
+
+    return PARAMS
+  }
+
+  mixParams (string) {
+    let mixedString = string
+    const PARAMS = this.getParams()
+
+    for (const PARAM in PARAMS) {
+      mixedString = mixedString.replace(new RegExp(`/{{\\s*${PARAM}\\s*}}/g`), PARAMS[PARAM])
+    }
+
+    return mixedString
+  }
+
+  static createRegExp (path) {
+    let regex = `^${path}$`
+
+    regex = regex.replace(/\*/g, '.*')
+    regex = regex.replace(/:+[^/$]*/g, '[^/]*')
+
+    return new RegExp(regex)
+  }
+
+  static goTo (path) {
+    let base
+
+    try {
+      base = document.querySelector('base').getAttribute('href')
+    } catch (e) {
+      base = '/'
+    }
+
+    if (path[0] === '/') {
+      path = path.substr(1)
+    }
+
+    path = base + path
+    history.pushState(path, '', path)
+    window.dispatchEvent(new CustomEvent('pathChanged'))
+  }
+}
