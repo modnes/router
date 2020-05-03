@@ -37,7 +37,8 @@ let router = new Router(document.querySelector('main'), [
   { // will change main element content to <category-list class="categories list"></category-list>
     path: '/categories',
     tagName: 'category-list',
-    classes: ['categories', 'list']
+    classes: ['categories', 'list'],
+    modules: ['path/to/category-list-module/index.js'] // will import this module before update the element
   },
   { // will change main element content to <movies-list class="movies-category list"></movies-list>
     path: '/categories/:name', // will provide the parameter 'name' with value 'movies' at /categories/movies
