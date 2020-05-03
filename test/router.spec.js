@@ -20,11 +20,11 @@ describe('Router', () => {
 
       ROUTER.addRoute({
         path: '/section',
-        component: 'section'
+        tagName: 'section'
       })
       ROUTER.addRoute({
         path: '/article',
-        component: 'article'
+        tagName: 'article'
       })
 
       expect(ROUTER.routes).to.have.lengthOf(2)
@@ -35,7 +35,7 @@ describe('Router', () => {
     it('Expect to be in / path with main element present', () => {
       const ROUTER_ELEMENT = document.createElement('div')
       const ROUTER = new Router(ROUTER_ELEMENT, [
-        { path: '/', component: 'main' }
+        { path: '/', tagName: 'main' }
       ])
 
       document.body.appendChild(ROUTER_ELEMENT)
@@ -48,13 +48,13 @@ describe('Router', () => {
     it('Expect to be in /section/any/article path with article element present', () => {
       const ROUTER_ELEMENT = document.createElement('div')
       const ROUTER = new Router(ROUTER_ELEMENT, [
-        { path: '/section/*/article', component: 'article', classes: ['section'] },
-        { path: '/section/:param1', component: 'section' },
-        { path: '/section/:param1/:param2', component: 'article' },
-        { path: '/section/:param1/resource/*', component: 'section' },
-        { path: '/section', component: 'section' },
-        { path: '/article', component: 'article' },
-        { path: '/*', component: 'main' }
+        { path: '/section/*/article', tagName: 'article', classes: ['section'] },
+        { path: '/section/:param1', tagName: 'section' },
+        { path: '/section/:param1/:param2', tagName: 'article' },
+        { path: '/section/:param1/resource/*', tagName: 'section' },
+        { path: '/section', tagName: 'section' },
+        { path: '/article', tagName: 'article' },
+        { path: '/*', tagName: 'main' }
       ])
 
       document.body.appendChild(ROUTER_ELEMENT)
@@ -70,13 +70,13 @@ describe('Router', () => {
     it('Expect to be in /section/test1 path with section element present', () => {
       const ROUTER_ELEMENT = document.createElement('div')
       const ROUTER = new Router(ROUTER_ELEMENT, [
-        { path: '/section/*/article', component: 'article' },
-        { path: '/section/:param1', component: 'section', attributes: [{ name: 'title', value: 'section' }] },
-        { path: '/section/:param1/:param2', component: 'article' },
-        { path: '/section/:param1/resource/*', component: 'section' },
-        { path: '/section', component: 'section' },
-        { path: '/article', component: 'article' },
-        { path: '/*', component: 'main' }
+        { path: '/section/*/article', tagName: 'article' },
+        { path: '/section/:param1', tagName: 'section', attributes: [{ name: 'title', value: 'section' }] },
+        { path: '/section/:param1/:param2', tagName: 'article' },
+        { path: '/section/:param1/resource/*', tagName: 'section' },
+        { path: '/section', tagName: 'section' },
+        { path: '/article', tagName: 'article' },
+        { path: '/*', tagName: 'main' }
       ])
 
       document.body.appendChild(ROUTER_ELEMENT)
@@ -93,13 +93,13 @@ describe('Router', () => {
     it('Expect to be in /section/test1/test2 path with article element present', () => {
       const ROUTER_ELEMENT = document.createElement('div')
       const ROUTER = new Router(ROUTER_ELEMENT, [
-        { path: '/section/*/article', component: 'article' },
-        { path: '/section/:param1', component: 'section' },
-        { path: '/section/:param1/:param2', component: 'article' },
-        { path: '/section/:param1/resource/*', component: 'section' },
-        { path: '/section', component: 'section' },
-        { path: '/article', component: 'article' },
-        { path: '/*', component: 'main' }
+        { path: '/section/*/article', tagName: 'article' },
+        { path: '/section/:param1', tagName: 'section' },
+        { path: '/section/:param1/:param2', tagName: 'article' },
+        { path: '/section/:param1/resource/*', tagName: 'section' },
+        { path: '/section', tagName: 'section' },
+        { path: '/article', tagName: 'article' },
+        { path: '/*', tagName: 'main' }
       ])
 
       document.body.appendChild(ROUTER_ELEMENT)
@@ -117,13 +117,13 @@ describe('Router', () => {
     it('Expect to be in /section/test1/resource/any path with section element present', () => {
       const ROUTER_ELEMENT = document.createElement('div')
       const ROUTER = new Router(ROUTER_ELEMENT, [
-        { path: '/section/*/article', component: 'article' },
-        { path: '/section/:param1', component: 'section' },
-        { path: '/section/:param1/:param2', component: 'article' },
-        { path: '/section/:param1/resource/*', component: 'section' },
-        { path: '/section', component: 'section' },
-        { path: '/article', component: 'article' },
-        { path: '/*', component: 'main' }
+        { path: '/section/*/article', tagName: 'article' },
+        { path: '/section/:param1', tagName: 'section' },
+        { path: '/section/:param1/:param2', tagName: 'article' },
+        { path: '/section/:param1/resource/*', tagName: 'section' },
+        { path: '/section', tagName: 'section' },
+        { path: '/article', tagName: 'article' },
+        { path: '/*', tagName: 'main' }
       ])
 
       document.body.appendChild(ROUTER_ELEMENT)
@@ -138,13 +138,13 @@ describe('Router', () => {
     it('Expect to be in /section path with section element present', () => {
       const ROUTER_ELEMENT = document.createElement('div')
       const ROUTER = new Router(ROUTER_ELEMENT, [
-        { path: '/section/*/article', component: 'article' },
-        { path: '/section/:param1', component: 'section' },
-        { path: '/section/:param1/:param2', component: 'article' },
-        { path: '/section/:param1/resource/*', component: 'section' },
-        { path: '/section', component: 'section' },
-        { path: '/article', component: 'article' },
-        { path: '/*', component: 'main' }
+        { path: '/section/*/article', tagName: 'article' },
+        { path: '/section/:param1', tagName: 'section' },
+        { path: '/section/:param1/:param2', tagName: 'article' },
+        { path: '/section/:param1/resource/*', tagName: 'section' },
+        { path: '/section', tagName: 'section' },
+        { path: '/article', tagName: 'article' },
+        { path: '/*', tagName: 'main' }
       ])
 
       document.body.appendChild(ROUTER_ELEMENT)
@@ -158,13 +158,13 @@ describe('Router', () => {
     it('Expect to be in /any path with main element present', () => {
       const ROUTER_ELEMENT = document.createElement('div')
       const ROUTER = new Router(ROUTER_ELEMENT, [
-        { path: '/section/*/article', component: 'article' },
-        { path: '/section/:param1', component: 'section' },
-        { path: '/section/:param1/:param2', component: 'article' },
-        { path: '/section/:param1/resource/*', component: 'section' },
-        { path: '/section', component: 'section' },
-        { path: '/article', component: 'article' },
-        { path: '/*', component: 'main' }
+        { path: '/section/*/article', tagName: 'article' },
+        { path: '/section/:param1', tagName: 'section' },
+        { path: '/section/:param1/:param2', tagName: 'article' },
+        { path: '/section/:param1/resource/*', tagName: 'section' },
+        { path: '/section', tagName: 'section' },
+        { path: '/article', tagName: 'article' },
+        { path: '/*', tagName: 'main' }
       ])
 
       document.body.appendChild(ROUTER_ELEMENT)
