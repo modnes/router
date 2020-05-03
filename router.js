@@ -52,12 +52,12 @@ export default class Router {
       }
 
       this.current = ROUTE
-      this.updateComponent(ROUTE.component)
+      this.updateElement(ROUTE.tagName)
     }
   }
 
-  updateComponent (component) {
-    const ELEMENT = document.createElement(this.mixParams(component))
+  updateElement (tagName) {
+    const ELEMENT = document.createElement(this.mixParams(tagName))
 
     if (this.currentElement) {
       this.currentElement.remove()
