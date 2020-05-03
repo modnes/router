@@ -1,5 +1,26 @@
 /* global history, CustomEvent */
+
+/**
+ * modnes Router
+ * @module '@modnes/router'
+ * @author Luiz Henrique Canet Filho <me@luizca.net>
+ */
+
+/**
+ * The built in custom event object.
+ * @external CustomEvent
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent|CustomEvent}
+ */
+
+/**
+ * Router
+ */
 export default class Router {
+  /**
+   * Creates a Router
+   * @param  {HTMLElement}  wrapper A DOM HTML element
+   * @param  {object[]}     routes  The routes set
+   */
   constructor (wrapper, routes) {
     this.routes = (routes instanceof Array) ? routes : []
     this.wrapper = wrapper
@@ -11,6 +32,10 @@ export default class Router {
     this.updateRoute()
   }
 
+  /**
+   * Add a new route to the router
+   * @param {object} route A route object
+   */
   addRoute (route) {
     this.routes.push(route)
   }
@@ -66,6 +91,10 @@ export default class Router {
     return null
   }
 
+  /**
+   * Get parameters from URI
+   * @return {object} An object with URI parameters as properties
+   */
   getParams () {
     const PARAMS = {}
     const PATH_PARAMS = this.current.path.match(/:+[^/$]*/g)
@@ -101,6 +130,10 @@ export default class Router {
     return new RegExp(regex)
   }
 
+  /**
+   * Navigate to a new path
+   * @param  {string} path The new path
+   */
   static goTo (path) {
     let base
 
