@@ -69,7 +69,7 @@ The [`getParams()`](https://github.com/modnes/router/wiki/API#getParams) returns
 ```javascript
 // When location is /section/book/50/any-string
 // and route path is /section/:param1/:param2/*
-let params = route.getParams()
+let params = router.getParams()
 // params will be equal { param1: 'book', param2: '50' }
 ```
 
