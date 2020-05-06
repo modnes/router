@@ -1,6 +1,6 @@
 {
   "name": "@modnes/router-page",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Router Module Page",
   "main": "index.html",
   "scripts": {
@@ -29,6 +29,6 @@
     "semantic-ui-less": "^2.4.1"
   },
   "dependencies": {
-    "@modnes/router": "^1.0.0"
+    "@modnes/router": "^1.1.0"
   }
 }

@@ -39,7 +39,7 @@ export default class ModnesRepositories extends HTMLElement {
           </div>
         </div>
         <div class="four wide column">
-          <div class="ui vertical fluid right tabular menu">
+          <div class="sub-router-example-menu ui vertical fluid right tabular menu">
             <a class="active item" href="repositories" is="router-anchor">
               Repositories
             </a>
@@ -53,5 +53,13 @@ export default class ModnesRepositories extends HTMLElement {
       </div>
     `)
     this.router = new Router(this.querySelector('.sub-router-wrapper'), ROUTES)
+    this.querySelectorAll('.sub-router-example-menu > .item').forEach(item => {
+      item.addEventListener('click', () => {
+        this.querySelectorAll('.sub-router-example-menu > .item').forEach(item => {
+          item.classList.remove('active')
+        })
+        item.classList.add('active')
+      })
+    })
   }
 }

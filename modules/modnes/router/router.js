@@ -1,4 +1,4 @@
-/* global history, CustomEvent */
+/* global history, CustomEvent, location */
 
 /**
  * modnes Router
@@ -25,7 +25,6 @@ export default class Router {
     this.routes = (routes instanceof Array) ? routes : []
     this.wrapper = wrapper
     this.current = null
-    this.path = null
     this.currentElement = null
 
     window.addEventListener('pathChanged', this.updateRoute.bind(this))

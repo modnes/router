@@ -1,28 +1,27 @@
 {
-  "_from": "@modnes/router",
-  "_id": "@modnes/router@1.0.0",
+  "_from": "@modnes/router@^1.1.0",
+  "_id": "@modnes/router@1.1.0",
   "_inBundle": false,
-  "_integrity": "sha512-wokn/GSkGBZDumfLmrlOQjd+sQWq30TSLBCWNTkfjvhMy+7MfcGglSDEW85MkmAyFuDkeBxzMmnJEzs5FrBbuw==",
+  "_integrity": "sha512-k+svTXDeCaWdcMjM4PuFCYDR8mWJm1EJx8nNA5NlY66Ub708f7k2lHe4Ug8YmeysXnEPBW0h0rSGzrFb+PEm2g==",
   "_location": "/@modnes/router",
   "_phantomChildren": {},
   "_requested": {
-    "type": "tag",
+    "type": "range",
     "registry": true,
-    "raw": "@modnes/router",
+    "raw": "@modnes/router@^1.1.0",
     "name": "@modnes/router",
     "escapedName": "@modnes%2frouter",
     "scope": "@modnes",
-    "rawSpec": "",
+    "rawSpec": "^1.1.0",
     "saveSpec": null,
-    "fetchSpec": "latest"
+    "fetchSpec": "^1.1.0"
   },
   "_requiredBy": [
-    "#USER",
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/@modnes/router/-/router-1.0.0.tgz",
-  "_shasum": "ab5edf6f0665ca6edb9eacf5e928a6520437bac4",
-  "_spec": "@modnes/router",
+  "_resolved": "https://registry.npmjs.org/@modnes/router/-/router-1.1.0.tgz",
+  "_shasum": "0bb0811965819bd3fbbc1e3469c8e651c7758997",
+  "_spec": "@modnes/router@^1.1.0",
   "_where": "/home/luiz/modnes/router",
   "author": {
     "name": "Luiz Henrique Canet Filho",
@@ -82,5 +81,5 @@
   "standard": {
     "parser": "babel-eslint"
   },
-  "version": "1.0.0"
+  "version": "1.1.0"
 }
