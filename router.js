@@ -1,4 +1,4 @@
-/* global history, CustomEvent */
+/* global history, CustomEvent, location */
 
 /**
  * modnes Router
@@ -41,10 +41,9 @@ export default class Router {
   }
 
   async updateRoute () {
-    const ROUTE = this.getRoute(window.location.pathname)
-    const INIT_CURRENT = (this.current === null && ROUTE !== null)
+    const ROUTE = this.getRoute(location.pathname)
 
-    if (ROUTE !== null && (INIT_CURRENT || this.current.path !== ROUTE.path)) {
+    if (ROUTE !== null && (this.current === null || this.current.path !== ROUTE.path || ROUTE.alwaysUpdate)) {
       if (ROUTE.modules instanceof Array) {
         for (const MODULE of ROUTE.modules) {
           await import(MODULE)
@@ -115,7 +114,7 @@ export default class Router {
     const PARAMS = this.getParams()
 
     for (const PARAM in PARAMS) {
-      mixedString = mixedString.replace(new RegExp(`/{{\\s*${PARAM}\\s*}}/g`), PARAMS[PARAM])
+      mixedString = mixedString.replace(new RegExp(`{{\\s*${PARAM}\\s*}}`, 'g'), PARAMS[PARAM])
     }
 
     return mixedString

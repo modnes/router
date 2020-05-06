@@ -1,6 +1,6 @@
 {
   "name": "@modnes/router",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Module to Control which Element to insert based on the Path",
   "main": "router.js",
   "scripts": {
