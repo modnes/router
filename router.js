@@ -1,4 +1,4 @@
-/* global history, CustomEvent */
+/* global history, CustomEvent, location */
 
 /**
  * modnes Router
