@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <base href="/router/">
+    <title>Router - Module to Control which Element to insert based on the Path</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="description" content="Router - Module to Control which Element to insert based on the Path" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="styles/main.css" rel="stylesheet" type="text/css" />
+    <script src="modules/package-download/index.js" type="module"></script>
+    <script src="modules/modnes/router/anchor/index.js" type="module"></script>
+    <script src="modules/router-example/index.js" type="module"></script>
+  </head>
+  <body>
+    <header class="ui inverted vertical masthead center aligned segment">
+      <div class="ui text container">
+        <div class="ui secondary inverted menu">
+          <a class="item" href="https://github.com/modnes/router/wiki">
+            Documentation
+          </a>
+          <a class="item" href="https://github.com/modnes/router/wiki/API">
+            API
+          </a>
+
+          <div class="right menu">
+            <div class="item">
+              <iframe
+                src="https://ghbtns.com/github-btn.html?user=modnes&repo=router&type=star&count=true"
+                frameborder="0" scrolling="0" width="170px" height="20px"></iframe>
+            </div>
+            <div class="item">
+              <a href='https://coveralls.io/github/modnes/router?branch=master'>
+                <img src='https://coveralls.io/repos/github/modnes/router/badge.svg?branch=master' alt='Coverage Status' />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ui text container">
+        <h1 class="ui inverted header">Router Module</h1>
+        <p class="ui inverted">Module to Control which Element to insert based on the Path</p>
+      </div>
+    </header>
+    <main class="ui main container">
+      <div class="ui basic segment">
+        <div class="ui text container">
+          <p>
+            Router is a browser module that aims to let implementations change
+            elements inside a wrapper element in response to path change events.
+          </p>
+          <h2>Installing</h2>
+          <p>
+            Using NPM:
+          </p>
+          <pre>
+<code>
+npm i @modnes/router
+</code>
+          </pre>
+
+          <p>
+            Downloading package: <br />
+            <package-download owner="modnes" repository="router" />
+          </p>
+
+          <h2>Usage</h2>
+          <p>
+            This package is intended to be used as an ES module.
+          </p>
+          <pre>
+<code>
+import Router from 'node_modules/@modnes/router/router.js'
+</code>
+          </pre>
+
+          <p>
+            The Router must receive an HTML Element from DOM and optionally an
+            Array of route objects.
+          </p>
+          <script src="https://gist.github.com/luizcanet/97af5a0f49d2ab33325115e132c163b1.js"></script>
+
+          <h2>Working Example</h2>
+          <p>
+            This is a working example using Router in a custom element:
+          </p>
+          <div>
+            <router-example></router-example>
+          </div>
+          
+          <h2>Methods</h2>
+          <p>
+            Data Controller provides some useful methods: addRoute(), getParams()
+            and Router.goTo().
+          </p>
+
+          <h3>addRoute</h3>
+          <p>
+            The <a href="https://github.com/modnes/router/wiki/API#addroute">
+            <code>addRoute()</code></a> method can be used inside a proccess to
+            dynamically add new routes to the Router.
+          </p>
+          
+          <h3>getParams</h3>
+          <p>
+            The <a href="https://github.com/modnes/router/wiki/API#addroute">
+            <code>getParams()</code></a> returns an object with URI parameters
+            as properties.
+          </p>
+
+          <h3>Router.goTo</h3>
+          <p>
+            <a href="https://github.com/modnes/router/wiki/API#goto">
+            <code>Router.goTo()</code></a> is a static method that can be used
+            to navigate to a new path.
+          </p>
+          <script src="https://gist.github.com/luizcanet/ac7914a2916d4af974a9146acc8ae6c4.js"></script>
+          
+          <h2>Router Anchor</h2>
+          <p>
+            The Router package also provides a custom element module to extend
+            the native a HTML tag. It implements the Router.goTo() static
+            method.
+          </p>
+          <script src="https://gist.github.com/luizcanet/a238c9a0d29f56e4df593b9cb815ca73.js"></script>
+
+          <footer>
+            <p>
+              See the <a href="https://github.com/modnes/router/wiki/API">
+              API documentation</a>
+            </p>
+          </footer>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

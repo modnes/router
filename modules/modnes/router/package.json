@@ -1,0 +1,86 @@
+{
+  "_from": "@modnes/router",
+  "_id": "@modnes/router@1.0.0",
+  "_inBundle": false,
+  "_integrity": "sha512-wokn/GSkGBZDumfLmrlOQjd+sQWq30TSLBCWNTkfjvhMy+7MfcGglSDEW85MkmAyFuDkeBxzMmnJEzs5FrBbuw==",
+  "_location": "/@modnes/router",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "@modnes/router",
+    "name": "@modnes/router",
+    "escapedName": "@modnes%2frouter",
+    "scope": "@modnes",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/@modnes/router/-/router-1.0.0.tgz",
+  "_shasum": "ab5edf6f0665ca6edb9eacf5e928a6520437bac4",
+  "_spec": "@modnes/router",
+  "_where": "/home/luiz/modnes/router",
+  "author": {
+    "name": "Luiz Henrique Canet Filho",
+    "email": "me@luizca.net"
+  },
+  "bugs": {
+    "url": "https://github.com/modnes/router/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Module to Control which Element to insert based on the Path",
+  "devDependencies": {
+    "@babel/register": "^7.9.0",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.1.0",
+    "chai": "^4.2.0",
+    "coveralls": "^3.0.11",
+    "esm": "^3.2.25",
+    "grunt": "^1.1.0",
+    "grunt-documentation": "^1.2.3",
+    "jsdom": "^16.2.2",
+    "jsdom-global": "^3.0.2",
+    "mocha": "^6.2.3",
+    "mocha-lcov-reporter": "^1.3.0",
+    "nyc": "^15.0.0",
+    "standard": "^14.3.3"
+  },
+  "homepage": "https://modnes.github.io/router/",
+  "keywords": [
+    "module",
+    "router",
+    "front-end"
+  ],
+  "license": "MIT",
+  "main": "router.js",
+  "mocha": {
+    "require": [
+      "esm"
+    ]
+  },
+  "name": "@modnes/router",
+  "nyc": {
+    "reporter": [
+      "lcov",
+      "text"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/modnes/router.git"
+  },
+  "scripts": {
+    "build-documentation": "grunt documentation",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "test": "standard && nyc mocha"
+  },
+  "standard": {
+    "parser": "babel-eslint"
+  },
+  "version": "1.0.0"
+}
